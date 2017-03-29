@@ -1,0 +1,14 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+# replace by *-config scripts
+capd_prefix=/usr/local
+
+Name: mpcapd
+Description: mpcapd library.
+Requires:
+Version: 4.2.153
+Libs: -L${capd_prefix}/lib -L${libdir} -lmpcapd  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr  -lgmp -lgmpxx -lmpfr                 -llog4cxx -lboost_filesystem -lboost_system -lboost_regex  
+Cflags: -I${capd_prefix}/include -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -DHAVE_MPCAPD_ALG -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__HAVE_MPFR__ -frounding-math -D__USE_FILIB__ -frounding-math -ffloat-store -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdDynSys4/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdAlg/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdDynSys4/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdAlg/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdAux/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdExt/filibsrc -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdExt/include 

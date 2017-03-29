@@ -1,0 +1,14 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+# replace by *-config scripts
+capd_prefix=/usr/local
+
+Name: capd-gui
+Description: capd library with gui.
+Requires:
+Version: 4.2.153
+Libs: -L${capd_prefix}/lib -L${libdir} -lcapd-gui  -pthread -lwx_gtk2u_xrc-3.0 -lwx_gtk2u_html-3.0 -lwx_gtk2u_qa-3.0 -lwx_gtk2u_adv-3.0 -lwx_gtk2u_core-3.0 -lwx_baseu_xml-3.0 -lwx_baseu_net-3.0 -lwx_baseu-3.0 -lX11                 -llog4cxx -lboost_filesystem -lboost_system -lboost_regex  
+Cflags: -I${capd_prefix}/include -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXGTK__ -pthread -frounding-math -D__USE_FILIB__ -frounding-math -ffloat-store -I/usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -I/usr/include/wx-3.0 -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdAux/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdDynSys4/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdAlg/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdAux/include -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdExt/filibsrc -I/var/lib/jenkins/workspace/capd-build-in-docker-capdDynSys/docker_image/capd-api-ubuntu_wily/label/jenkins-slave-dockerin/workdir/capd-capdDynSys-4.2.153/capdExt/include 
