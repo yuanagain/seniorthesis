@@ -1,0 +1,91 @@
+
+
+W’s MacBook Pro:~/dev/thesis/thesis_scratch$ python3 experiment_poincare.py
+[8.959135804139336, -8.088945521150906, 8.733959499529313, -8.302512165691056]
+[0.5459541184967234, -0.5150996249530538, 0.8329223389009017, 0.13541863005974944]
+<numdifftools.core.Hessian object at 0x105d244e0>
+PASS 0
+x = [0.5459541184967234, -0.5150996249530538, 0.8329223389009017, 0.13541863005974944]
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/scipy/linalg/basic.py:884: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+  warnings.warn(mesg, RuntimeWarning)
+dist = 1.7626929861990221
+PASS 1
+x = [0.36717248098833022, -0.50484951376213916, 0.85941658665194709, 0.207070497749231]
+dist = 0.74794034446
+PASS 2
+x = [0.32223115634266475, -0.22039230765254286, 0.85354370918439992, 0.16318691341414251]
+dist = 0.0479515110034
+PASS 3
+x = [0.31323856870897127, -0.19442221743449101, 0.8651279348781431, 0.18627491980012137]
+dist = 2.92740684062
+PASS 4
+x = [0.32873503505687118, -0.26578236020196527, 0.78978167421286816, 0.24795106437928438]
+dist = 0.024455251753
+PASS 5
+x = [0.7837303047229669, -0.27442810285562941, 1.0265787472933432, 0.0029171648807551354]
+dist = 0.323322793385
+PASS 6
+x = [0.46453239055552559, -0.20599209973818583, 0.60837753003481909, -0.23989837147118712]
+dist = 2.23086727524
+PASS 7
+x = [0.47146440737188888, -0.27271751341540784, 0.63597539304550921, -0.13796889725689748]
+dist = 2.44049419617
+PASS 8
+x = [18.820041529355215, -12.266087428818587, 0.56948371607381676, -2.0459982765239517]
+dist = 100.700777422
+PASS 9
+x = [38.718496315486988, 31.744030032275667, 19.421971752538948, 7.5123012272710863]
+dist = 3904.88281552
+PASS 10
+x = [18.415863667717041, 32.793808800117567, 5.9952055158677098, 0.73121722835197467]
+dist = 2303.1310161
+PASS 11
+x = [20.653355262905578, -14.951254936773921, 5.7497883026401579, 18.84615527393666]
+dist = 321.735096935
+PASS 12
+x = [12.29829187129816, -11.26408063483113, 2.6216521383279812, 11.848977079537999]
+dist = 60.1091814623
+PASS 13
+x = [7.6029359737614293, -7.8944258991692902, 1.2788987748194132, 7.6504276371466462]
+dist = 19.7209843944
+PASS 14
+x = [4.7097539558698855, -5.4699199963231351, 0.5793232842282805, 4.9563216770385878]
+dist = 3.77106348376
+PASS 15
+x = [71.581148184314316, -1.3621423987311498, 0.26724797634273889, -79.971470214354383]
+dist = 140089.32024
+PASS 16
+x = [75.384045388949062, 8.4394261390707968, 1.9711751983731076, -56.67729356558403]
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:9: RuntimeWarning: overflow encountered in double_scalars
+  dists = [ dists[i]**2 for i in range(len(x) )]
+dist = 2.41631837649e+16
+PASS 17
+x = [75.108189663725952, 8.5414743134393518, 1.8330993108915556, -56.369682960909941]
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:9: RuntimeWarning: overflow encountered in double_scalars
+  dists = [ dists[i]**2 for i in range(len(x) )]
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/numdifftools/extrapolation.py:446: RuntimeWarning: invalid value encountered in subtract
+  old_sequence[-m+1:]) * fact)
+/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/numdifftools/extrapolation.py:355: RuntimeWarning: invalid value encountered in subtract
+  abserr = err1 + err2 + np.where(converged, tol2 * 10, np.abs(result - e2))
+dist = 8.9904524517e+15
+PASS 18
+x = [74.826261031517802, 8.6649829884376359, 1.7117359263441705, -56.036994618547538]
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:59: RuntimeWarning: overflow encountered in double_scalars
+  x_1_dot = lambda_2 * (x_1**2 - y_1**2) - (lambda_2 + lambda_3) * (x_1*x_2 - y_1*y_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:59: RuntimeWarning: invalid value encountered in double_scalars
+  x_1_dot = lambda_2 * (x_1**2 - y_1**2) - (lambda_2 + lambda_3) * (x_1*x_2 - y_1*y_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:60: RuntimeWarning: overflow encountered in double_scalars
+  y_1_dot = 2 * lambda_2 * x_1 * y_1 - (lambda_2 + lambda_3) * (x_1*y_2 + y_1*x_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:60: RuntimeWarning: invalid value encountered in double_scalars
+  y_1_dot = 2 * lambda_2 * x_1 * y_1 - (lambda_2 + lambda_3) * (x_1*y_2 + y_1*x_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:61: RuntimeWarning: overflow encountered in double_scalars
+  x_2_dot = lambda_1 * (x_2**2 - y_2**2) - (lambda_1 + lambda_3) * (x_1*x_2 - y_1*y_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:61: RuntimeWarning: invalid value encountered in double_scalars
+  x_2_dot = lambda_1 * (x_2**2 - y_2**2) - (lambda_1 + lambda_3) * (x_1*x_2 - y_1*y_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:62: RuntimeWarning: overflow encountered in double_scalars
+  y_2_dot = 2 * lambda_1 * x_2 * y_2 - (lambda_1 +lambda_3) * (x_1*y_2 + y_1*x_2)
+/Users/yw/dev/thesis/thesis_scratch/thesis_utils.py:62: RuntimeWarning: invalid value encountered in double_scalars
+  y_2_dot = 2 * lambda_1 * x_2 * y_2 - (lambda_1 +lambda_3) * (x_1*y_2 + y_1*x_2)
+
+  raise RuntimeError("P was unable to find intersection before step count maximum:" + str(stepCnt_MAX))
+RuntimeError: P was unable to find intersection before step count maximum:1000000

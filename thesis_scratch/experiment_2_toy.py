@@ -104,22 +104,24 @@ def quad1(w, x, y, z, s=10, r=28, b=2.667):
 ## March 27
 default_lambda_1, default_lambda_2, default_lambda_3 = 0.086, 0.141, 0.773
 
-def quad2(x_1, y_1, x_2, y_2, 
+def quad2(x_1, x_2, x_3, x_4, 
             lambda_1 = default_lambda_1, 
             lambda_2 = default_lambda_2, 
             lambda_3 = default_lambda_3):
     """
-    dz1/dt = lambda_2 * z1^2 - (lambda_2 + lambda_3) * z1 * z2
-    dz2/dt = lambda_1 * z2^2 - (lambda_1 + lambda_3) * z1 * z2
-    http://www.math.kit.edu/iag3/~herrlich/seite/wws-11/media/wws-talk-valdez.pdf
+        # x1' = -x1 + x1*x2 + x1*x3
+        # x2' = 3*x2*x4 - 2*x1*x2
+        # x3' = x3*x4 - x3*x1 + x2*x1
+        # x4' = -x3*x4 - 3*x2*x4 + x1
+
     """
+    x_1_dot = -x_1 + x_1 * x_2 + x_1 * x_3
+    y_1_dot = 3 * x_2 * x_4 - 2 * x_1 * x_2
+    x_2_dot = x_3 * x_4 - x_3 * x_1 + x_2 * x_1
+    y_2_dot = -x_3 * x_4 - 3 * x_2 * x_4 + x_1
 
-    x_1_dot = lambda_2 * (x_1**2 - y_1**2) - (lambda_2 + lambda_3) * (x_1*x_2 - y_1*y_2)
-    y_1_dot = 2 * lambda_2 * x_1 * y_1 - (lambda_2 + lambda_3) * (x_1*y_2 + y_1*x_2)
-    x_2_dot = lambda_1 * (x_2**2 - y_2**2) - (lambda_1 + lambda_3) * (x_1*x_2 - y_1*y_2)
-    y_2_dot = 2 * lambda_1 * x_2 * y_2 - (lambda_1 +lambda_3) * (x_1*y_2 + y_1*x_2)
-
-    return x_1_dot, y_1_dot, x_2_dot, y_2_dot
+    return [x_1_dot, y_1_dot, x_2_dot, y_2_dot]
+    #return [-x_1_dot, -y_1_dot, -x_2_dot, -y_2_dot]
 
 def plot_quad(ws, xs, ys, zs, plot_type = 0, txt = ""):    
 
@@ -261,7 +263,7 @@ def main(argv):
             lambda_2 = default_lambda_2 
             lambda_3 = default_lambda_3
 
-            dt = 0.01
+            dt = 0.1
             stepCnt = 100000
 
             # Need one more for the initial values
@@ -272,10 +274,10 @@ def main(argv):
 
             # Setting initial values
 
-            ws[0], xs[0], ys[0], zs[0] = (  0.032, 
-                                            0.308, 
-                                            -0.1, 
-                                            -0.5 )
+            ws[0], xs[0], ys[0], zs[0] = (  4, 
+                                            2, 
+                                            -3, 
+                                            -4 )
 
             # Stepping through "time".
             print("LAMBDAS")
