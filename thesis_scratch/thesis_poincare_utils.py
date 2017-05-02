@@ -80,7 +80,7 @@ def poincareExtract(ws, xs, ys, zs, crossings):
     ## slice
     crossings_array = np.array(crossings)
     indices = list(np.where(crossings_array < 0)[0])
-    print("crossings: " + str(len(indices)))
+    # print("crossings: " + str(len(indices)))
     ws = list(np.array(ws)[indices])
     xs = list(np.array(xs)[indices])
     ys = list(np.array(ys)[indices])
@@ -88,7 +88,7 @@ def poincareExtract(ws, xs, ys, zs, crossings):
     
     return ws, xs, ys, zs
 
-def poincarePlot(ws, xs, ys, zs, crossings, txt = " "):
+def poincarePlotCrossings(ws, xs, ys, zs, crossings, txt = " "):
     ## Plot setup
     fig = plt.figure()
     ax = fig.gca(projection='3d')
@@ -114,9 +114,38 @@ def poincarePlot(ws, xs, ys, zs, crossings, txt = " "):
     ax.set_xlabel("X Axis")
     ax.set_ylabel("Y Axis")
     ax.set_zlabel("Z Axis")
-    ax.set_title(txt)
+    ax.set_title("x-y-z")
 
-    plt.show()
+    return plt
+
+def poincarePlot(ws, xs, ys, zs, txt = " ", limits = [None, None, None]):
+    ## Plot setup
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+
+    plt.subplots_adjust(top=0.85)
+    plt.suptitle(txt, fontsize=14)
+    
+    # plt.xlim( (-10, 10) )
+    # plt.ylim( (-10, 10) )
+    # # plt.zlim( (-10, 10) )
+    
+    if limits[0] != None:
+        ax.set_xlim(*limits[0])
+    if limits[1] != None:
+        ax.set_ylim(*limits[1])
+    if limits[2] != None:
+        ax.set_zlim(*limits[2])
+    # ax.set_ylim(-3, 3)
+    # ax.set_zlim(-3, 3)
+    ## execute
+    ax.scatter(ws, xs, ys)
+    ax.set_xlabel("X Axis")
+    ax.set_ylabel("Y Axis")
+    ax.set_zlabel("Z Axis")
+    ax.set_title("x-y-z")
+
+    return plt
 
 def test():
 	testplane = HyperPlane(3,2,1,3,-4)

@@ -81,7 +81,7 @@ def experiment_2(start_pt = default_start,
         return phi(t, start_pt, lmbda)
     
     def newton_search(t, T = 1, N = 25):
-        newton(phi_instance, t)
+        newton(phi_instance)
 
     def plot_sim_path(x_0, T):
         stepCnt = math.ceil(T / dt)

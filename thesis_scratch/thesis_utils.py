@@ -5,6 +5,10 @@ import numdifftools as nd
 import operator
 
 
+def quad_distance(w, x, y, z):
+    """mainly for plotting type 2"""
+    return [w[i]**2 + x[i]**2 + y[i]**2 + z[i]**2 for i in range(len(w))]
+
 def quad_sq_distance(x, y):
     """Computes the squared distance"""
     dists = [ x[i] - y[i] for i in range(len(x) )]
@@ -20,6 +24,9 @@ def tuple_subtract(a, b):
     
 def list_subtract(a, b):
     return list(map(operator.sub, a, b))
+
+def list_add(a, b):
+    return list(map(operator.add, a, b))
 
 def approx_derivs(x):
     """Approximate partial deritatives of x"""

@@ -14,6 +14,8 @@ class ExperimentTrace:
 		self.evo = evo
 
 	def run(self):
+		self.evo.
 
 
 def main():
+	

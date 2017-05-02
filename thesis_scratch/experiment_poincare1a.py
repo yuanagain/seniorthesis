@@ -1,6 +1,6 @@
 """
-experiment_poincare.py
-Poincare map generation
+experiment_poincare_1a.py
+Poincare map generation on Colluci Nunez
 Author: Yuan Wang
 """
 
@@ -19,7 +19,7 @@ import numdifftools as nd
 from evolution import *
 from experiment import *
 
-class ExperimentPoincare(Experiment):
+class ExperimentPoincare1a(Experiment):
 
     def setParams(self, hyperplane = HyperPlane(1, 1, 1, 1, 4), T = 1000, start_pt = default_start):
         self.hyperplane = hyperplane
@@ -118,15 +118,15 @@ def main():
 
     print(evo)
 
-    expmt = ExperimentPoincare( evo = evo, 
-                                title = "Poincare map generation", 
-                                descr = "Leveraging Poincare maps to gain insights about our system")
+    expmt = ExperimentPoincare1a(   evo = evo, 
+                                    title = "Poincare map generation, Colluci Nunez", 
+                                    descr = "Leveraging Poincare maps to gain insights about our system")
 
     # expmt.setParams(T = 4, start_pt = default_start)
 
     expmt.setParams(hyperplane = HyperPlane(-4, 12, 2, -10, -1.2), 
-                    T = 30, 
-                    start_pt = [9.1, 4.1, 3.2, 4.5] )
+                    T = 4, 
+                    start_pt = default_start )
 
     print("============")
     print(expmt)
