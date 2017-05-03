@@ -14,7 +14,7 @@ import scipy.special as special
 from scipy.integrate import quad
 from scipy.optimize import newton
 
-from evolution import *
+from evolutioninterval import *
 from experiment import *
 
 class ExperimentIntervalSim(Experiment):
@@ -26,8 +26,8 @@ class ExperimentIntervalSim(Experiment):
     #     self.setup()
     #     self.fig_ct = 0
 
-    def setParams(self, T = 1, start_pt = default_start):
-        self.params['T'] = T
+    def setParams(self, step_ct = 1, start_pt = default_start):
+        self.params['step_ct'] = step_ct
         self.params['start_pt'] = start_pt
         self.saveParams()
 
@@ -35,35 +35,13 @@ class ExperimentIntervalSim(Experiment):
         """
         Runs the Experiment
         """
-        self.print("Running Newton Search, varying t")
-        self.newton_search()
+        data = self.evo.generate(   self.params['start_pt'], 
+                                    h = None,  
+                                    p_e = 2,
+                                    stepCt = self.params['step_ct'] )
 
-    def f_integrand(self, t = 0):
-        """
-        Distance |f_T+t(x_0) - f_t(x_0)|^2, = 0 iff orbit of period T exists starting at f_t(x_0)
-        """
-        return quad_sq_distance(self.evo.F(self.params['start_pt'], t), 
-                                self.evo.F(self.params['start_pt'], t + self.params['T']))
-    
-    def phi(self, t):
-        """
-        Integrated |f_T+t(x_0) - f_t(x_0)|^2, = 0 iff orbit of period T exists starting at f_t(x_0)
-        """
-        return quad(lambda t: self.f_integrand(t), 0, self.params['T'])[0]
-    
-    def newton_search(self, t = None):
-        """
-        Minimize f_integrand while varying t
-        """
-        if t == None:
-            t = self.params['T'] / 2
+        self.print(data)
 
-
-        self.print("min_t:")
-        min_t = newton(self.phi, t)
-        self.print(min_t)
-        self.print("F(min_t)")
-        self.print(self.evo.F(self.params['start_pt'], min_t))
 
 def main():
     """
@@ -71,22 +49,18 @@ def main():
     """
 
     print("============")
-    evo = Evolution_1a(lmbda = lmbda_set_1)
+    evo = Evolution_Valdez(lmbda = lmbda_set_1)
     print(evo)
     print("============")
     print("============")
 
     expmt = ExperimentIntervalSim(evo = evo, 
-                                title = "Rigorous Interval Simulation", 
-                                descr = "Rigorous Interval Simulation per Lohner Algorithm")
+                                title = "Zgliczynski Rigorous Interval Simulation", 
+                                descr = "Rigorous Interval Simulation w/ Lohner type algo per Zgliczynski paper")
 
-    expmt.setParams(T = 1, start_pt = default_start)
+    expmt.setParams(step_ct = 100, start_pt = toArray(tupleToIntervalVector(default_start)) )
 
-    print("============")
-    print(expmt)
-
-    plt = evo.gen_plot(default_start, plot_type = 0)
-    expmt.savePlot(plt)
+    # print("============")
     expmt.run()
 
     

@@ -11,7 +11,7 @@ from __future__ import division
 from interval import interval, inf, imath
 import operator
 
-class IntervalN(list): 
+class IntervalN: 
     def __init__(self, x = [interval([0, 0]), interval([0, 0]), interval([0, 0]), interval([0, 0])]):
         """
         Create defensive copy
@@ -146,6 +146,7 @@ def main():
     print('x = ' + x.__str__())
     print('y = ' + y.__str__())
 
+
     print("============================")
     print("Comparisons")
     print("----------------------------")
@@ -155,6 +156,10 @@ def main():
     print(x_clone2 == y)
     print(x_clone2 != y)
     print(_scalar(7))
+    print(x * 4)
+    print(x in y)
+    print(x in x * 4)
+    print(x in x * interval([0.999, 1.001]))
 
     print("============================")
     print("Operations")
