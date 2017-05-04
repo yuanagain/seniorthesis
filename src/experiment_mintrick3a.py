@@ -93,10 +93,13 @@ def main():
     plt = evo.gen_plot( x_0 = [9.1, 4.1, 3.2, 4.5], 
                         T = 103.8282347284540594,
                         stepCnt = 100000,
-                        plot_type = 0, 
+                        plot_type = 2, 
                         DEBUG = False)
 
     expmt.savePlot(plt)
+    plt.show()
+
+
 
 
     #expmt.run()

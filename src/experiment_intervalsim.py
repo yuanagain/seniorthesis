@@ -14,6 +14,8 @@ import scipy.special as special
 from scipy.integrate import quad
 from scipy.optimize import newton
 
+import time
+
 from evolutioninterval import *
 from experiment import *
 
@@ -58,10 +60,16 @@ def main():
                                 title = "Zgliczynski Rigorous Interval Simulation", 
                                 descr = "Rigorous Interval Simulation w/ Lohner type algo per Zgliczynski paper")
 
-    expmt.setParams(step_ct = 100, start_pt = toArray(tupleToIntervalVector(default_start)) )
+    expmt.setParams(step_ct = 10000, start_pt = toArray(tupleToIntervalVector(default_start)) )
 
     # print("============")
+    
+    print("Timing")
+    start = time.time()
     expmt.run()
+    end = time.time()
+    print("Time:")
+    print(end - start)
 
     
 
