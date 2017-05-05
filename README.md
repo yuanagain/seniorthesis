@@ -2,7 +2,7 @@
 
 ## Abridged Usage Guide, from Appendix
 
-This is by no means a complete usage guide; we are simply showcasing some principal interfaces here.
+This is by no means a complete usage guide; we are simply showcasing some principal interfaces here. For additional assistance submit an issue or reach me at yuan@americanmarineresearch.org.
 
 #### IntervalN: 
 `IntervalN` implements $n$ dimensional interval vectors. We construct `IntervalN` using one-dimensional intervals provided in PyInterval Taschini. A number of operations are supported. Source located at `src/intervals/intervaln.py`. Usage examples follow:
