@@ -191,7 +191,33 @@ class Evolution_Toy_A(Evolution):
                 "x3' = x3*x4 - x3*x1 + x2*x1 \n" + \
                 "x4' = -x3*x4 - 3*x2*x4 + x1 \n"
 
+class EvolutionValdez(Evolution):
+    def __init__(self, lmbda, dt = 0.01):
+        self.lmbda = lmbda
+        self.dt = dt
 
+    def __call__(self, x_0):
+
+        x_1 = x_0[0]
+        y_1 = x_0[1]
+        x_2 = x_0[2]
+        y_2 = x_0[3]
+
+        x_1_dot = self.lmbda[1] * (x_1**2 - y_1**2) - (self.lmbda[1] + self.lmbda[2]) * (x_1*x_2 - y_1*y_2)
+        y_1_dot = 2 * self.lmbda[1] * x_1 * y_1 - (self.lmbda[1] + self.lmbda[2]) * (x_1*y_2 + y_1*x_2)
+        x_2_dot = self.lmbda[0] * (x_2**2 - y_2**2) - (self.lmbda[0] + self.lmbda[2]) * (x_1*x_2 - y_1*y_2)
+        y_2_dot = 2 * self.lmbda[0] * x_2 * y_2 - (self.lmbda[0] +self.lmbda[2]) * (x_1*y_2 + y_1*x_2)
+
+        return [x_1_dot, y_1_dot, x_2_dot, y_2_dot]
+
+    # def f(self, x_0, T = 1, dt = 0.01):
+    #     return super(Evolution_1a, self).f(x_0, T = 1, dt = 0.01)
+
+    def __str__(self):
+        return  "dz1/dt = lambda_2 * z1^2 - (lambda_2 + lambda_3) * z1 * z2 \n" + \
+                "dz2/dt = lambda_1 * z2^2 - (lambda_1 + lambda_3) * z1 * z2 \n" + \
+                "lambda_1: " + str(self.lmbda[0]) + \
+                "; lambda_2: " + str(self.lmbda[1]) + "; lambda_3: " + str(self.lmbda[2])
 
 class Evolution_1a(Evolution):
     def __init__(self, lmbda, dt = 0.01):
