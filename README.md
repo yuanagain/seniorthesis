@@ -1,4 +1,4 @@
-# Senior Thesis
+# Code to Computer-Assisted Methods for Studying Periodic Orbits on R^4
 
 ## Abridged Usage Guide, from Appendix
 
