@@ -75,7 +75,7 @@ expmt.savePlot(plt3)
 expmt.print("Text appended to info file successfully")
 ~~~
 
-\emph{EvolutionInterval}: 
+#### EvolutionInterval 
 The `EvolutionInterval` class provides an interface for rigorously describing and studying systems in which the user specifies the evolution function. It is the set-valued analog of the `Evolution` class, equipped with interval calculus. Source located at `src/evolutioninterval.py`. Usage examples follow:
 
 ~~~
