@@ -1,0 +1,4 @@
+numpy
+pyinterval
+numdifftools
+matplotlib

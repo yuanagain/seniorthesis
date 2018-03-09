@@ -55,7 +55,7 @@ class ExperimentMinTrick3(Experiment):
         x = self.params['start_pt'] + [self.params['start_T']]
 
         self.print("*(x, g(x)):*")
-        for i in range(20):    
+        for i in range(30):    
             adjust = np.matmul(np.linalg.inv(hessian(x)), np.transpose( jacobian(x)))
             adjust = np.transpose(adjust)[0]
 
@@ -93,17 +93,16 @@ def main():
     plt = evo.gen_plot( x_0 = [9.1, 4.1, 3.2, 4.5], 
                         T = 103.8282347284540594,
                         stepCnt = 100000,
-                        plot_type = 2, 
+                        plot_type = 0, 
                         DEBUG = False)
 
     expmt.savePlot(plt)
+
+    expmt.run()
+    print(evo.F(x_0 = [6.4254581289417709, 0.23979777320847995, 0.74194036920525941, 4.2707722423952443], 
+            T = 4.0523045328004494 ) )
+    #6.7137523948875257, 0.25050456528021109, 0.7503460124735859, 4.4766520351302388, 3.9800410221931561
     plt.show()
-
-
-
-
-    #expmt.run()
-    print(expmt)
 
 
 if __name__=="__main__":

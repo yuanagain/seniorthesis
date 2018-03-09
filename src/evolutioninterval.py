@@ -9,7 +9,6 @@ from thesis_matrix_utils import *
 
 import time
 
-
 import numpy as np
 import math
 
